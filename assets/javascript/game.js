@@ -37,11 +37,14 @@ document.onkeyup = function (event) {
         wins++;
         guessesLeft = 10;
         guessesSoFar = [];
+        userGues = '';
         //when player wins, guessesLeft is set back to 10, guessesSoFar is set to an empty array
         //when guessesSoFar = [], set randomLetterSelect generates another random number
         if (guessesSoFar = []) {
             randomLetterSelect = wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)];
-            //error: leaves empty until key is pressed
+    
+            guessesLeft = guessesLeft + 1;
+            userGuess = '';
         }
     } else if (userGuess != randomLetterSelect) {
         guessesLeft--;
@@ -50,6 +53,7 @@ document.onkeyup = function (event) {
         losses++;
         guessesLeft = 10;
         guessesSoFar = [];
+        userGuess = '';
     }
     guessesSoFar += userGuess;
 
