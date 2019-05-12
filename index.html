@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>The Psychic Game</title>
-    <script src="C:\Users\xX_GREG0R-E_Xx\Desktop\homeWork\Psychic-Game\assets\javascript/game.js"></script>
-</head>
+    
 <header>
     <h1>The Psychic Game</h1>
 </header>
@@ -24,81 +23,7 @@
         <p id="guess-amount-text"></p>
         <p id="reset"></p>
     </div>
-
-
-    <script>
-
-        //variables that hold wins, losses, left guesses, guesses so far and set them equal to their respective value
-        var wins = 0;
-        var losses = 0;
-        var guessesLeft = 9; //start off with 9 guesses till game over
-        var guessesSoFar = [];
-
-        //array of letters
-        var wordsToGuess = ['k', 'i', 'n', 'g', 's', 'l', 'a', 'y', 'e', 'r'];
-
-        //reference to id
-        var directionsText = document.getElementById("directions-text");
-        var winsText = document.getElementById("wins-text");
-        var lossesText = document.getElementById("losses-text");
-        var guessText = document.getElementById("guess-text");
-        var guessAmountText = document.getElementById("guess-amount-text");
-
-        //randomly pic a letter
-        var randomGuess = wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)];
-
-        //  var newRand = function randomReset(){
-        //      for(var i = 0; i < wordsToGuess.length; i++){
-        //          return Math.floor(Math.random()*wordsToGuess[i]);
-        //      }
-        //  }
-
-        //function runs when the user presses a key.
-        document.onkeyup = function (event) {
-            var userGuess = event.key;
-
-
-            //*****GAME INSTRUCTIONS*****
-            //user has to guess which letter the program chose (randomly)
-            //guesses so far (specific letters that the user typed. Display)
-            //wins(# of times the user guessed the letter correctly)
-            //guess left (# of guess left) (update)
-            //losses(# of times the user guessed the letter inccorrectly)
-            //when the player wins, increase wins counter & start over without refresh
-            //when the player loses, increase wins counter & start over without refresh
-
-            if (userGuess === randomGuess) {
-                wins++;
-                guessesLeft--;
-                guessesSoFar = '';
-
-                //newRand; (functions to reset ***Doesn't work) 
-
-            } else if (userGuess != randomGuess) {
-                guessesLeft--;
-
-                //newRand; (functions to reset ***Doesn't work)
-            }
-
-            //seperate from win/losss
-
-            if (guessesLeft === 0) {
-                losses++;
-                guessesLeft = 9;
-                guessesSoFar = '';
-            } else if (guessesSoFar === '') {
-                randomGuess;
-            }
-
-            guessesSoFar += userGuess;
-
-            //Display game content 
-            winsText.textContent = "Wins: " + wins;
-            lossesText.textContent = "Losses: " + losses;
-            guessText.textContent = "Guesses Left: " + guessesLeft;
-            guessAmountText.textContent = "Guesses so Far: " + guessesSoFar;
-        }
-    </script>
+    <script src="assets/javascript/game.js"></script>
 </body>
 
 </html>
