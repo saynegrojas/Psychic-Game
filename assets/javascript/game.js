@@ -1,6 +1,6 @@
 var wins = 0;
 var losses = 0;
-var guessesLeft = 10; //start off with 9 guesses till game over
+var guessesLeft = 10; //start off with 10 guesses till game over
 var guessesSoFar = [];
 
 //array of letters
@@ -20,7 +20,6 @@ var randomLetterSelect = wordsToGuess[Math.floor(Math.random() * wordsToGuess.le
 document.onkeyup = function (event) {
     var userGuess = event.key;
 
-
     //*****GAME INSTRUCTIONS*****
     //user has to guess which letter the program chose (randomly)
     //guesses so far (specific letters that the user typed. Display)
@@ -29,22 +28,25 @@ document.onkeyup = function (event) {
     //losses(# of times the user guessed the letter inccorrectly)
     //when the player wins, increase wins counter & start over without refresh
     //when the player loses, increase wins counter & start over without refresh
+    //variables that hold wins, losses, left guesses, guesses so far and set them equal to their respective value
+
+    //check randomLetter
     console.log(randomLetterSelect);
-    console.log(guessesSoFar)
+
     if (userGuess === randomLetterSelect) {
         wins++;
         guessesLeft = 10;
         guessesSoFar = [];
         //when player wins, guessesLeft is set back to 10, guessesSoFar is set to an empty array
         //when guessesSoFar = [], set randomLetterSelect generates another random number
-        if(guessesSoFar = []){
+        if (guessesSoFar = []) {
             randomLetterSelect = wordsToGuess[Math.floor(Math.random() * wordsToGuess.length)];
             //error: leaves empty until key is pressed
         }
     } else if (userGuess != randomLetterSelect) {
         guessesLeft--;
     }
-     if (guessesLeft === 0) {
+    if (guessesLeft === 0) {
         losses++;
         guessesLeft = 10;
         guessesSoFar = [];
@@ -56,5 +58,4 @@ document.onkeyup = function (event) {
     lossesText.textContent = "Losses: " + losses;
     guessText.textContent = "Guesses Left: " + guessesLeft;
     guessAmountText.textContent = "Guesses so Far: " + guessesSoFar;
-    //variables that hold wins, losses, left guesses, guesses so far and set them equal to their respective value
 }
